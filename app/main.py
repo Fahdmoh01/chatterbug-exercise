@@ -10,15 +10,19 @@ from dotenv import load_dotenv
 from pathlib import Path
 
 app = FastAPI()
-
 BASE_DIR = Path(__file__).parent.parent.absolute()
+
+# mounting staticfiles
 app.mount(
     "/static",
     StaticFiles(directory=Path.joinpath(BASE_DIR, "static")),
     name="static",
 )
+
+# mounting templates
 templates = Jinja2Templates(directory=Path.joinpath(BASE_DIR, "templates"))
 
+# loading and setting environment variables
 load_dotenv(Path.joinpath(BASE_DIR, ".env"))
 movies_url = os.environ["MOVIES_URL"]
 access_token = os.environ["ACCESS_TOKEN"]
@@ -26,7 +30,11 @@ access_token = os.environ["ACCESS_TOKEN"]
 
 @app.post("/generate-password")
 async def generate_password(additionalFields: PasswordSchema):
-    """Generates a password according to selected field options in additionalFields."""
+    """
+    Generates a password according to selected field options in additionalFields.
+    [method: POST]
+    [params: length,symbols,digits,lowercase,uppercase]
+    """
     password = password_generator(additionalFields)
     return JSONResponse({"generatedPassword": password, "length": len(password)})
 
@@ -34,8 +42,10 @@ async def generate_password(additionalFields: PasswordSchema):
 @app.get("/third-party-api")
 async def get_movies(request: Request):
     """
-    Movie data is fetched from third-party api https://developer.themoviedb.org/reference/discover-movie
-    The data is transformed and served to movies.html for presentation.
+    Fetchs data from third-party api https://developer.themoviedb.org/reference/discover-movie
+    and serves the transformed data to movies.html for presentation.
+    [method: GET]
+    [params: None]
     """
     try:
         headers = {
@@ -55,5 +65,5 @@ async def get_movies(request: Request):
     except (ConnectionError, TimeoutError) as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Error fetching data: {e}",
+            detail={"error": f"Error fetching data: {e}"},
         )

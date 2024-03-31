@@ -12,6 +12,7 @@ class PasswordFields(BaseModel):
 
     @validator("length")
     def verify_length(cls, lengthCheck: int):
+        """Error handling for invalid length inputs"""
         if not (isinstance(lengthCheck, int)) or lengthCheck <= 8:
             raise HTTPException(
                 status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,

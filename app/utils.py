@@ -36,6 +36,9 @@ def password_generator(fields: PasswordSchema) -> str:
 
 
 def transform_data(movies_result):
+    """
+    Transforms data into a new format with only required information
+    """
     movie_list = []
     for data in movies_result["results"]:
         movie_id = data["id"]
