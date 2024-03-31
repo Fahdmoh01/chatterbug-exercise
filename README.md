@@ -23,9 +23,9 @@ most popular movies using the TheMovieBD's API. Thus, this repository satisfies 
 
 * Install dependencies from the requirements.txt
 ##
-        pip install requirements.txt
+        pip install -r requirements.txt
 
-* Generate Access Token and find the API URL  from TheMovieDB https://developer.themoviedb.org/reference/intro/authentication. For the purpose of evaluation, I will be providing my Access Token below and the API URL below:
+* Generate Access Token and find the API URL  from TheMovieDB https://developer.themoviedb.org/reference/intro/authentication. For the purpose of evaluation, I will be providing my Access Token and the API URL below. Replace them with os.environ[] in the main.py:
 ##
         ACCESS_TOKEN = eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZTUzMGQ3ZGY3ZmFkNGYzMWY4M2Q0Y2M4NjM2NTIzNiIsInN1YiI6IjYwNWRmOTEyZjNlMGRmMDA3MzkxNDViMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.e8nwm4dk5HMerwzFSRoY6oLcaIEoy-jMOk2LNLpXZw0
 ##

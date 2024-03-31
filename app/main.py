@@ -24,8 +24,8 @@ templates = Jinja2Templates(directory=Path.joinpath(BASE_DIR, "templates"))
 
 # loading and setting environment variables
 load_dotenv(Path.joinpath(BASE_DIR, ".env"))
-movies_url = os.environ["MOVIES_URL"]
-access_token = os.environ["ACCESS_TOKEN"]
+MOVIES_URL = os.environ["MOVIES_URL"]
+ACCESS_TOKEN = os.environ["ACCESS_TOKEN"]
 
 
 @app.post("/generate-password")
@@ -50,10 +50,10 @@ async def get_movies(request: Request):
     try:
         headers = {
             "accept": "application/json",
-            "Authorization": f"Bearer {access_token}",
+            "Authorization": f"Bearer {ACCESS_TOKEN}",
         }
         # fetched data in json format
-        response = requests.get(movies_url, headers=headers)
+        response = requests.get(MOVIES_URL, headers=headers)
         movies_result = response.json()
 
         # json data transformed to present only required information
