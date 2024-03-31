@@ -43,7 +43,7 @@ Routes can either be accessed on Postman, Swagger or any API tool of choice.
         POST http://127.0.0.1:8000/generate-password
         
         
-* Request Payload to test /generate-password route:
+* Example Request Payload to  /generate-password route:
 ##
         {
             "length": 12,
