@@ -17,6 +17,10 @@ most popular movies using the TheMovieBD's API. Thus, this repository satisfies 
 ##
         python -m venv env
 
+* Activate virtual environment
+##
+        source env/bin/activate
+
 * Install dependencies from the requirements.txt
 ##
         pip install requirements.txt
