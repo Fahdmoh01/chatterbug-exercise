@@ -1,5 +1,5 @@
 # Chatterbug-exercise
-Coding exercise for Junior Junior Full Stack Developer position at Chatterbug Ltd.
+Coding exercise for the Junior Full Stack Developer position at Chatterbug Ltd.
 
 # Description
 This codebase allows a user to generate passwords based on password security best practices. It also allows the user to fetch the top 10
