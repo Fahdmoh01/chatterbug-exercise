@@ -10,6 +10,7 @@
        <div class="container">
         <div class="row g-4">
             {% for movie in movie_info %}
+            <!--Start of Movie Card-->
             <div class="col-md-4 col-6">
                 <div class="card mx-auto">
                     <img class="card-img-top img-fit" src="https://image.tmdb.org/t/p/w185/{{movie.movie_poster}}" alt="Movie Poster">
@@ -27,6 +28,7 @@
                     </ul>
                   </div>
                 </div>
+              <!--End of Movie Card-->
              {% endfor %}
         </div>
        </div>
