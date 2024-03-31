@@ -1,9 +1,9 @@
 import os
-from fastapi import FastAPI, Request, Response, status, HTTPException
+import requests
+from fastapi import FastAPI, Request, status, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import JSONResponse
-from pydantic import ValidationError
 from utils import password_generator, transform_data
 from schema import PasswordFields as PasswordSchema
 from dotenv import load_dotenv
@@ -24,7 +24,7 @@ movies_url = os.environ["MOVIES_URL"]
 access_token = os.environ["ACCESS_TOKEN"]
 
 
-@app.post("/generate-password", status_code=status.HTTP_201_CREATED)
+@app.post("/generate-password")
 async def generate_password(additionalFields: PasswordSchema):
     """
     Generates a password according to selected field options in additionalFields.
@@ -33,4 +33,24 @@ async def generate_password(additionalFields: PasswordSchema):
     return JSONResponse({"generatedPassword": password, "length": len(password)})
 
 
-# @app.get("/third-party-api")
+@app.get("/third-party-api")
+async def get_movies(request: Request):
+    """Fetches"""
+    try:
+        headers = {
+            "accept": "application/json",
+            "Authorization": f"Bearer {access_token}",
+        }
+        response = requests.get(movies_url + "xse", headers=headers)
+
+        movies_result = response.json()
+        transformed_movie_data = transform_data(movies_result)
+        return templates.TemplateResponse(
+            "movies.html",
+            {"request": request, "movie_info": transformed_movie_data[:10]},
+        )
+    except (ConnectionError, TimeoutError) as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error fetching data: {e}",
+        )
