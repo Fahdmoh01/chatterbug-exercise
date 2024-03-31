@@ -1,12 +1,14 @@
-# chatterbug-exercise
+# Chatterbug-exercise
 Coding exercise solution for Chatterbug Ltd
 
-# description
-This codebase allows a user to generate passwords. It also allows the user to fetch the top 10
-most popular movies using the TheMovieBD's API.
+# Description
+This codebase allows a user to generate passwords based on password security best practices. It also allows the user to fetch the top 10
+most popular movies using the TheMovieBD's API. Thus, this repository satisfies both the main objectives and optional objectives repectively. I look forward to further discussing my suitability for the role in the interviews.
 
-# usage
+# Snapshots:
+![](overall.gif)
 
+# Usage
 * clone the repository
 ##
        git clone https://github.com/Fahdmoh01/chatterbug-exercise.git 
@@ -28,3 +30,35 @@ most popular movies using the TheMovieBD's API.
 * run the command below to start the application. ensure you in the app directory
 ##
         uvicorn main:app --reload
+
+
+# Testing the /generate-password route.[Main Objective]
+Route can either be tested on Postman, Swagger or any API tool of choice.
+* make a POST request to generate password
+##
+        POST http://127.0.0.1:8000/generate-password
+        
+        
+* Request Payload to test /generate-password route:
+##
+        {
+            "length": 12,
+            "symbols": true,
+            "digits": true,
+            "lowercase": true,
+            "uppercase": true
+        }
+* Response will be a password and the password length in JSON format. Example Response:
+##
+        {
+            "generatedPassword": "H=OC3:;J]$F.",
+            "length": 12
+        }
+
+# Testing the /third-party-api route.[Optional Objective]
+* make a GET request to view the web page of the top 10 most popular movies in the world right now according to the ThemovieDB
+##
+        GET http://localhost:8000/third-party-api
+
+* Response will be a webpage:
+![](thirdparty.gif)
