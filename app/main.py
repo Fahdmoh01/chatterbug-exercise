@@ -31,7 +31,7 @@ access_token = os.environ["ACCESS_TOKEN"]
 @app.post("/generate-password")
 async def generate_password(additionalFields: PasswordSchema):
     """
-    Generates a password according to selected field options in additionalFields.
+    Generates a password based on the field options provided in additionalFields through the request payload.
     [method: POST]
     [params: length,symbols,digits,lowercase,uppercase]
     """
