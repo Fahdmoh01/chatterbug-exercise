@@ -1,9 +1,9 @@
 # Chatterbug-exercise
-Coding exercise solution for Chatterbug Ltd
+Coding exercise for Junior Junior Full Stack Developer position at Chatterbug Ltd.
 
 # Description
 This codebase allows a user to generate passwords based on password security best practices. It also allows the user to fetch the top 10
-most popular movies using the TheMovieBD's API. Thus, this repository satisfies both the main objectives and optional objectives repectively. I look forward to further discussing my suitability for the role in the interviews.
+most popular movies using the TheMovieBD's API. Thus, this repository satisfies both the main objectives and optional objectives of the exercise repectively. I look forward to further discussing my suitability for the role in the interviews.
 
 # Snapshots:
 ![](overall.gif)
@@ -62,3 +62,6 @@ Route can either be tested on Postman, Swagger or any API tool of choice.
 
 * Response will be a webpage:
 ![](thirdparty.gif)
+
+- Author: Fahd Mohammed 
+- Email: fahdmoh.1@gmail.com
