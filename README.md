@@ -32,8 +32,8 @@ most popular movies using the TheMovieBD's API. Thus, this repository satisfies 
         uvicorn main:app --reload
 
 
-# Testing the /generate-password route.[Main Objective]
-Route can either be tested on Postman, Swagger or any API tool of choice.
+# Using the /generate-password route.[Main Objective]
+Routes can either be accessed on Postman, Swagger or any API tool of choice.
 * Make a POST request to generate password
 ##
         POST http://127.0.0.1:8000/generate-password
@@ -55,7 +55,7 @@ Route can either be tested on Postman, Swagger or any API tool of choice.
             "length": 12
         }
 
-# Testing the /third-party-api route.[Optional Objective]
+# Using the /third-party-api route.[Optional Objective]
 * Make a GET request to view the web page of the top 10 most popular movies in the world right now according to the ThemovieDB
 ##
         GET http://localhost:8000/third-party-api
