@@ -16,9 +16,11 @@ h3{
     height: 100%;
     flex-direction: column;
 }
+
 .card-text{
     flex-grow: 1;
 }
+
 @media(max-width:767.98px){
     .card .img-fit{
         aspect-ratio: 1.45/1;

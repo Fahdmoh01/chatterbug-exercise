@@ -4,6 +4,10 @@ from typing import Optional
 
 
 class PasswordFields(BaseModel):
+    """
+    This class contains fields which will be used in the request payload to generate a password
+    """
+
     length: int = Field(default=8)
     symbols: Optional[bool] = Field(default=True)
     digits: Optional[bool] = Field(default=True)
@@ -12,7 +16,7 @@ class PasswordFields(BaseModel):
 
     @validator("length")
     def verify_length(cls, lengthCheck: int):
-        """Error handling for invalid length inputs"""
+        """Error handling for invalid length input"""
         if not (isinstance(lengthCheck, int)) or lengthCheck <= 8:
             raise HTTPException(
                 status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,

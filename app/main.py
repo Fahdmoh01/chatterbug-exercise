@@ -52,10 +52,11 @@ async def get_movies(request: Request):
             "accept": "application/json",
             "Authorization": f"Bearer {access_token}",
         }
+        # fetched data in json format
         response = requests.get(movies_url, headers=headers)
         movies_result = response.json()
 
-        # json data transformed to extracted need info
+        # json data transformed to present only required information
         transformed_movie_data = transform_data(movies_result)
 
         return templates.TemplateResponse(
