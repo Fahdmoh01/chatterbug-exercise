@@ -36,7 +36,7 @@ async def generate_password(additionalFields: PasswordSchema):
     [params: length,symbols,digits,lowercase,uppercase]
     """
     password = password_generator(additionalFields)
-    return JSONResponse({"generatedPassword": password, "length": len(password)})
+    return JSONResponse({"generated_password": password, "length": len(password)})
 
 
 @app.get("/third-party-api")
