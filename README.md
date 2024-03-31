@@ -37,7 +37,7 @@ most popular movies using the TheMovieBD's API. Thus, this repository satisfies 
 
 
 # Using the /generate-password route.[Main Objective]
-Routes can either be accessed on Postman, Swagger or any API tool of choice.
+Routes can either be accessed on Postman, Swagger(http://127.0.0.1:8000/docs) or any API tool of choice.
 * Make a POST request to generate password
 ##
         POST http://127.0.0.1:8000/generate-password
