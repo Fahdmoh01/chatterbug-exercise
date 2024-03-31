@@ -26,25 +26,28 @@ access_token = os.environ["ACCESS_TOKEN"]
 
 @app.post("/generate-password")
 async def generate_password(additionalFields: PasswordSchema):
-    """
-    Generates a password according to selected field options in additionalFields.
-    """
+    """Generates a password according to selected field options in additionalFields."""
     password = password_generator(additionalFields)
     return JSONResponse({"generatedPassword": password, "length": len(password)})
 
 
 @app.get("/third-party-api")
 async def get_movies(request: Request):
-    """Fetches"""
+    """
+    Movie data is fetched from third-party api https://developer.themoviedb.org/reference/discover-movie
+    The data is transformed and served to movies.html for presentation.
+    """
     try:
         headers = {
             "accept": "application/json",
             "Authorization": f"Bearer {access_token}",
         }
-        response = requests.get(movies_url + "xse", headers=headers)
-
+        response = requests.get(movies_url, headers=headers)
         movies_result = response.json()
+
+        # json data transformed to extracted need info
         transformed_movie_data = transform_data(movies_result)
+
         return templates.TemplateResponse(
             "movies.html",
             {"request": request, "movie_info": transformed_movie_data[:10]},
