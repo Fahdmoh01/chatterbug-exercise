@@ -3,12 +3,13 @@ import requests
 from fastapi import FastAPI, Request, status, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, RedirectResponse
+
 from utils import password_generator, transform_data  # comment out to run tests
 from schema import PasswordFields as PasswordSchema  # comment out to run tests
 
-# from .utils import password_generator, transform_data # uncomment to run tests
-# from .schema import PasswordFields as PasswordSchema # uncomment to run tests
+# from .utils import password_generator, transform_data  # uncomment to run tests
+# from .schema import PasswordFields as PasswordSchema  # uncomment to run tests
 from dotenv import load_dotenv
 from pathlib import Path
 
@@ -31,6 +32,13 @@ MOVIES_URL = os.environ["MOVIES_URL"]
 ACCESS_TOKEN = os.environ["ACCESS_TOKEN"]
 
 
+# Routers
+@app.get("/")
+async def index():
+    """Redirects user to Swagger(/docs endpoint)"""
+    return RedirectResponse("/docs")
+
+
 @app.post("/generate-password")
 async def generate_password(additionalFields: PasswordSchema):
     """
@@ -39,7 +47,10 @@ async def generate_password(additionalFields: PasswordSchema):
     [params: length,symbols,digits,lowercase,uppercase]
     """
     password = password_generator(additionalFields)
-    return JSONResponse({"generated_password": password, "length": len(password)})
+    return JSONResponse(
+        status_code=status.HTTP_200_OK,
+        content={"generated_password": password, "length": len(password)},
+    )
 
 
 @app.get("/third-party-api")

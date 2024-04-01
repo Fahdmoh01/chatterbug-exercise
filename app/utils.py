@@ -3,9 +3,10 @@ from pathlib import Path
 import random
 
 from fastapi import HTTPException, status
+
 from schema import PasswordFields as PasswordSchema  # comment out to run tests
 
-# from app.schema import PasswordFields as PasswordSchema # uncomment to run tests
+# from app.schema import PasswordFields as PasswordSchema  # uncomment to run tests
 
 
 def password_generator(fields: PasswordSchema) -> str:
