@@ -3,7 +3,7 @@ from pathlib import Path
 import random
 
 from fastapi import HTTPException, status
-from schema import PasswordFields as PasswordSchema
+from app.schemas import PasswordFields as PasswordSchema
 
 
 def password_generator(fields: PasswordSchema) -> str:

@@ -59,6 +59,11 @@ Routes can either be accessed on Postman, Swagger(http://127.0.0.1:8000/docs) or
             "length": 12
         }
 
+# Test the /generate-password route
+You can test the /generate-password route using pytest by running the command below:
+##
+        python -m pytest --verbose tests/ 
+
 # Using the /third-party-api route.[Optional Objective]
 * Make a GET request to view the web page of the top 10 most popular movies in the world right now according to the ThemovieDB
 ##
