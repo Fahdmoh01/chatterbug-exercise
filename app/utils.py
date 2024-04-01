@@ -29,7 +29,7 @@ def password_generator(fields: PasswordSchema) -> str:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
             detail={
-                "error": "One of (lowercase, uppercase, digits, or symbols) must be enabled"
+                "error": "One of (lowercase, uppercase, digits, or symbols) must be set to True"
             },
         )
     return "".join(random.choice(password) for _ in range(fields.length))
