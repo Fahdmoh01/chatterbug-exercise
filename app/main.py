@@ -4,8 +4,11 @@ from fastapi import FastAPI, Request, status, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import JSONResponse
-from .utils import password_generator, transform_data
-from .schemas import PasswordFields as PasswordSchema
+from utils import password_generator, transform_data  # comment out to run tests
+from schema import PasswordFields as PasswordSchema  # comment out to run tests
+
+# from .utils import password_generator, transform_data # uncomment to run tests
+# from .schema import PasswordFields as PasswordSchema # uncomment to run tests
 from dotenv import load_dotenv
 from pathlib import Path
 

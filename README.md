@@ -60,7 +60,7 @@ Routes can either be accessed on Postman, Swagger(http://127.0.0.1:8000/docs) or
         }
 
 # Test the /generate-password route
-You can test the /generate-password route using pytest by running the command below:
+You can test the /generate-password route using pytest by running the command below. Before that, comment and uncomment the specified lines of code in the app/utils.py and app/main.py files:
 ##
         python -m pytest --verbose tests/ 
 
