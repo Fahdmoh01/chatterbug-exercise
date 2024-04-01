@@ -64,7 +64,7 @@ Routes can either be accessed on Postman, Swagger(http://127.0.0.1:8000/docs) or
 ##
         GET http://localhost:8000/third-party-api
 
-* Response will be a webpage:
+* Response will be a webpage served with JSON data for creative presentation:
 ![](thirdparty.gif)
 
 - Author: Fahd Mohammed 
